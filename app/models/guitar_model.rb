@@ -1,0 +1,2 @@
+class GuitarModel < ApplicationRecord
+end

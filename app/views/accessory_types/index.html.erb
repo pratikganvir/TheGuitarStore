@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accessory Types</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Accessory</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accessory_types.each do |accessory_type| %>
+      <tr>
+        <td><%= accessory_type.name %></td>
+        <td><%= link_to 'Show', accessory_type %></td>
+        <td><%= link_to 'Edit', edit_accessory_type_path(accessory_type) %></td>
+        <td><%= link_to 'Delete', accessory_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accessory Type', new_accessory_type_path %>

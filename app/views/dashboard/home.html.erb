@@ -1,0 +1,19 @@
+<%= render 'shared/header' %>
+<%= render 'shared/breadcrumbs' %>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-3">
+          <div class="card bg-light mb-3">
+            <%= render 'shared/sidebar', title: 'Brands', items: Brand.select(:id,:name), filter: 'brand_filter' %>
+            <%= render 'shared/sidebar', title: 'Models', items: guitar_models, filter: 'model_filter' %>
+            </div>
+        </div>
+        <div class="col">
+            <%= render 'product_list', products: @guitars, heading: 'Guitars' %>
+            <%= render 'product_list', products: @accessories, heading: 'Accessories' %>
+        </div>
+
+    </div>
+</div>
+<%= render 'shared/cart_modal' %>
+<%= render 'shared/footer' %>

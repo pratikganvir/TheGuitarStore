@@ -1,0 +1,42 @@
+<%= form_with(model: accessory, local: true) do |form| %>
+  <% if accessory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(accessory.errors.count, "error") %> prohibited this accessory from being saved:</h2>
+
+      <ul>
+      <% accessory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: 'required', class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :brand %>
+    <%= form.select :brand_id, options_from_collection_for_select(Brand.all, :id, :name), {}, class: "form-control", presence: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :accessory_image %>
+    <%= form.file_field :accessory_image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :accessory_type %>
+    <%= form.select :accessory_type_id, options_from_collection_for_select(AccessoryType.all, :id, :name), required: 'required' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.text_field :price, {value: 0.0, min: 0,step: 0.01, class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit %>
+  </div>
+<% end %>

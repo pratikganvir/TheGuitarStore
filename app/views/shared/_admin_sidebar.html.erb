@@ -1,0 +1,48 @@
+<div class="side-menu">
+  <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <div class="brand-wrapper">
+              <!-- Brand -->
+              <div class="brand-name-wrapper">
+                  <a class="navbar-brand" href="#">
+                      Guitar Store Admin
+                  </a>
+              </div>
+          </div>
+      </div>
+
+      <!-- Main Menu -->
+      <div class="side-menu-container">
+          <ul class="nav navbar-nav">
+              <%= content_tag :li do %>
+                <%= link_to guitars_path do %>
+                  <%= content_tag :span, nil, class: 'glyphicon glyphicon-send' %>
+                  Guitars
+                <% end %>
+              <% end %>
+
+              <%= content_tag :li do %>
+                <%= link_to brands_path do %>
+                  <%= content_tag :span, nil, class: 'glyphicon glyphicon-send' %>
+                  Brands
+                <% end %>
+              <% end %>
+
+              <%= content_tag :li do %>
+                <%= link_to accessories_path do %>
+                  <%= content_tag :span, nil, class: 'glyphicon glyphicon-send' %>
+                  Accessories
+                <% end %>
+              <% end %>
+
+              <%= content_tag :li do %>
+                <%= link_to accessory_types_path do %>
+                  <%= content_tag :span, nil, class: 'glyphicon glyphicon-send' %>
+                  Accessory Types
+                <% end %>
+              <% end %>
+          </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+</div>

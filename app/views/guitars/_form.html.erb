@@ -1,0 +1,63 @@
+<%= form_with(model: guitar, local: true) do |form| %>
+  <% if guitar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guitar.errors.count, "error") %> prohibited this guitar from being saved:</h2>
+
+      <ul>
+      <% guitar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name,  class: "form-control", required: 'required' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :brand %>
+    <%= form.select :brand_id, options_from_collection_for_select(Brand.all, :id, :name), {}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :guitar_image %>
+    <%= form.file_field :guitar_image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :guitar_type %>
+    <%= form.select :guitar_type, Guitar.guitar_types.keys, {}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :guitar_model %>
+    <%= form.text_field :guitar_model, required: 'required', class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :no_of_strings %>
+    <%= form.number_field :no_of_strings, {value: 4, min: 4, step: 1, class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.text_field :price, {value: 0.0, min: 0,step: 0.01, class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number, {required: 'required', class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :purchase_date %>
+    <%= form.date_select :purchase_date, {required: 'required', class: "form-control"} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class: 'btn-primary' %>
+    <%= link_to 'Back', guitars_path, class: 'btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+$('#cart_item_count').text("<%= @cart.shopping_cart_items.sum(:quantity) %>")
+$('#cartModal').modal('hide');

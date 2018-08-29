@@ -1,0 +1,22 @@
+<%= form_with(model: accessory_type, local: true) do |form| %>
+  <% if accessory_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(accessory_type.errors.count, "error") %> prohibited this accessory_type from being saved:</h2>
+
+      <ul>
+      <% accessory_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: 'required' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit %>
+  </div>
+<% end %>

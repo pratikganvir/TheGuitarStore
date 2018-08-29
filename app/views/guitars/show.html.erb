@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @guitar.brand_id %>
+</p>
+
+<p>
+  <strong>Guitar type:</strong>
+  <%= @guitar.guitar_type %>
+</p>
+
+<p>
+  <strong>No of strings:</strong>
+  <%= @guitar.no_of_strings %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @guitar.price %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @guitar.serial_number %>
+</p>
+
+<p>
+  <strong>Purchase date:</strong>
+  <%= @guitar.purchase_date %>
+</p>
+
+<p>
+  <strong>Sold date:</strong>
+  <%= @guitar.sold_date %>
+</p>
+
+<%= link_to 'Edit', edit_guitar_path(@guitar) %> |
+<%= link_to 'Back', guitars_path %>
