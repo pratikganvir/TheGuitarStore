@@ -1,11 +1,8 @@
 class DashboardController < ApplicationController
-  def home
-  	binding.pry
-  	@guitars = Guitar.includes(:brand).where(search_query)
-  	@accessories = Accessory.includes(:brand).where(search_query)
-  end
 
-  def cart
+  def home
+  	@guitars = Guitar.includes(:brand).where(search_query('guitars')).references(:brand)
+  	@accessories = Accessory.includes(:brand).where(search_query('accessories')).references(:brand)
   end
 
   def add_shopping_cart_item
@@ -29,11 +26,11 @@ class DashboardController < ApplicationController
   	params.permit(:product_id,:product_type)
   end
 
-  def search_query
+  def search_query(model_name)
   	query = []
-  	query << "brand_id = #{params[:brand]}" if params[:brand].present?
-  	query << "guitar_model like %#{params[:model]}%" if params[:model].present?
-  	query << "name like %#{params[:q]}%" if params[:q].present?
+  	query << "brands.name like '%#{params[:brand]}%'" if params[:brand].present?
+  	query << "guitar_model like '%#{params[:model]}%'" if params[:model].present? && model_name=='guitars'
+  	query << "#{model_name}.name ilike '%#{params[:q]}%'" if params[:q].present?
   	query.join(' and ')
   end
 end

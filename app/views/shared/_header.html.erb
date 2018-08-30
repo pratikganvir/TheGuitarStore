@@ -6,19 +6,13 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-
             <form class="form-inline my-2 my-lg-0" action='/' id="cart_search">
                 <div class="input-group input-group-sm">
-                    <input type="text" name='q' class="form-control" aria-label="Small" placeholder="Search..." id='search_input'>
+                    <input type="text" name='q' class="form-control" aria-label="Small" placeholder="Search..." id='search_input' value="<%= params[:q] %>">
                     <input type="hidden" name='model' class="form-control" aria-label="Small" placeholder="Search..." id='model_filter' value="<%= params[:model] %>">
                     <input type="hidden" name='brand' class="form-control" aria-label="Small" placeholder="Search..." id='brand_filter' value="<%= params[:brand] %>">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary btn-number">
+                        <button type="submit" class="btn btn-secondary btn-number" onclick="$('#model_filter').val('');$('#brand_filter').val('');">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>

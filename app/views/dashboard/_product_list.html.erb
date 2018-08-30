@@ -1,22 +1,24 @@
-<div class="row">
-<div class="col-12"><h3><%= heading %></h3></div>
-<% products.each do |product| %>
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card">
-            <%= image_tag product.image.url, class: 'card-img-top', size: '253x168' %>
-            <div class="card-body">
-                <h4 class="card-title"><a href="#" title="View Guitar"><%= product.title %></a></h4>
-                <p class="card-text"><%= product.serial_number %></p>
-                <div class="row">
-                    <div class="col">
-                        <p class="btn btn-danger btn-block"><%= product.price %> $</p>
-                    </div>
-                    <div class="col">
-                      <%= link_to 'Add to cart', add_cart_item_path(product_id: product.id,product_type: product.class.name), class: 'btn btn-success btn-block', remote: true %>
+<% if products.present? %>
+    <div class="row">
+        <div class="col-12"><h3><%= heading %></h3></div>
+        <% products.each do |product| %>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <%= image_tag product.image.url, class: 'card-img-top', size: '253x168' %>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" title="View Guitar"><%= product.title %></a></h4>
+                        <p class="card-text"><%= product.serial_number %></p>
+                        <div class="row">
+                            <div class="col">
+                                <p class="btn btn-danger btn-block"><%= product.price %> $</p>
+                            </div>
+                            <div class="col">
+                              <%= link_to 'Add to cart', add_cart_item_path(product_id: product.id,product_type: product.class.name), class: 'btn btn-success btn-block', remote: true %>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+    <% end %>
     </div>
 <% end %>
-</div>
