@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
 		if current_or_guest_user.admin?
-			new_guitar_path
+			guitars_path
 		else
 			super
 		end
