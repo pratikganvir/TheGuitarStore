@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
 	def load_cart
 	  @cart = current_or_guest_user.shopping_cart.present? ? current_or_guest_user.shopping_cart : current_or_guest_user.create_shopping_cart
 	end
+
+	def check_admin
+		unless current_or_guest_user.admin?
+			redirect_to new_user_session_path
+		end
+	end
 end

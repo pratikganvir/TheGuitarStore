@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   layout 'admin'
+  before_action :check_admin
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands

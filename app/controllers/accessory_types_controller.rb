@@ -1,5 +1,6 @@
 class AccessoryTypesController < ApplicationController
   layout 'admin'
+  before_action :check_admin
   before_action :set_accessory_type, only: [:show, :edit, :update, :destroy]
 
   # GET /accessory_types

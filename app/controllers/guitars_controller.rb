@@ -1,5 +1,6 @@
 class GuitarsController < ApplicationController
 	layout 'admin'
+  before_action :check_admin
   before_action :set_guitar, only: [:show, :edit, :update, :destroy]
 
   # GET /guitars

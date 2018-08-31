@@ -42,6 +42,13 @@
                   Accessory Types
                 <% end %>
               <% end %>
+
+              <%= content_tag :li do %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <%= content_tag :span, nil, class: 'glyphicon glyphicon-send' %>
+                  Logout
+                <% end %>
+              <% end %>
           </ul>
       </div><!-- /.navbar-collapse -->
   </nav>

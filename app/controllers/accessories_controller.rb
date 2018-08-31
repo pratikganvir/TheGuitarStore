@@ -1,5 +1,6 @@
 class AccessoriesController < ApplicationController
   layout 'admin'
+  before_action :check_admin
   before_action :set_accessory, only: [:show, :edit, :update, :destroy]
 
   # GET /accessories
