@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
 			redirect_to new_user_session_path
 		end
 	end
+
+	def after_sign_in_path_for(resource)
+		if current_or_guest_user.admin?
+			new_guitar_path
+		else
+			super
+		end
+  end
 end
